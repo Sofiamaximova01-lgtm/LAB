@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           
-          title: Text('Легендарные моменты из легендарного мультфильма',
+          title: Text('Каждый охотник желает знать где сидит фазан.',
           style: TextStyle(
             fontSize: 30.0, 
           ),
@@ -34,78 +34,51 @@ class MyHomePage extends StatelessWidget {
     return Center(
       child:SingleChildScrollView(
         
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
+        spacing: 10.0, // Расстояние между элементами по горизонтали
+        runSpacing: 10.0, // Расстояние между рядами
         children: <Widget>[
           Container(
+            width: 180, 
+            height: 150, 
             padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 134, 108, 108),
-            child: Image.asset(
-              'logo_1.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
+            color: const Color.fromARGB(255, 243, 9, 9),
           ),
           Container(
+            width: 180, 
+            height: 150, 
             padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 134, 108, 108),
-            child: Image.asset(
-              'logo_2.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
+            color: const Color.fromARGB(255, 218, 129, 12),
           ),
           Container(
+            width: 180, 
+            height: 150, 
             padding: EdgeInsets.all(8.0),
-            color: Color.fromARGB(255, 42, 23, 146),
-            child: Image.asset(
-              'logo_3.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
+            color: Color.fromARGB(255, 230, 215, 6),
           ),
           Container(
+            width: 180, 
+            height: 150, 
             padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 42, 23, 146),
-            child: Image.asset(
-              'logo_4.jpg',
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
+            color: const Color.fromARGB(255, 73, 202, 14),
           ),
           Container(
+            width: 180, 
+            height: 150, 
             padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 42, 23, 146),
-            child: Image.asset(
-              'logo_5.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
+            color: const Color.fromARGB(255, 21, 181, 209),
           ),
           Container(
+            width: 180, 
+            height: 150, 
             padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 175, 14, 14),
-            child: Image.asset(
-              'logo_6.png', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
+            color: const Color.fromARGB(255, 16, 13, 189),
           ),
           Container(
+            width: 180, 
+            height: 150, 
             padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 175, 14, 14),
-            child: Image.asset(
-              'logo_7.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
+            color: const Color.fromARGB(255, 119, 8, 184),
           ),
         ],
       ),
