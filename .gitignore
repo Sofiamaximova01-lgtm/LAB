@@ -32,11 +32,20 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
+<<<<<<< Updated upstream
 /web 
 /macos 
 /linux
 /android 
 /ios
+=======
+/android
+/ios
+/linux
+/macos
+/web
+/windows
+>>>>>>> Stashed changes
 /.vscode
 
 # Symbolication related
