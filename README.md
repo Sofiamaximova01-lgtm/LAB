@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-# flutter_application_2
-=======
 # flutter_application_4
->>>>>>> Stashed changes
 
 A new Flutter project.
 

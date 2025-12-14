@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// Состояния
 abstract class BmiState {}
 
 class BmiInitial extends BmiState {}
@@ -50,11 +49,9 @@ class BmiErrorState extends BmiState {
   BmiErrorState(this.message, this.previousState);
 }
 
-// Cubit
 class BmiCubit extends Cubit<BmiState> {
   BmiCubit() : super(BmiInputState(isAgreed: false));
 
-  // Обновление веса
   void updateWeight(String weightValue) {
     final currentState = state;
     if (currentState is BmiInputState) {
@@ -66,7 +63,6 @@ class BmiCubit extends Cubit<BmiState> {
     }
   }
 
-  // Обновление роста
   void updateHeight(String heightValue) {
     final currentState = state;
     if (currentState is BmiInputState) {
@@ -78,7 +74,6 @@ class BmiCubit extends Cubit<BmiState> {
     }
   }
 
-  // Обновление согласия
   void updateAgreement(bool isAgreed) {
     final currentState = state;
     if (currentState is BmiInputState) {
@@ -121,7 +116,6 @@ class BmiCubit extends Cubit<BmiState> {
       return;
     }
 
-    // Расчет ИМТ
     double adjustedHeight = height > 4 ? height / 100 : height;
     double bmi = weight / (adjustedHeight * adjustedHeight);
     
@@ -135,7 +129,6 @@ class BmiCubit extends Cubit<BmiState> {
     ));
   }
 
-  // Возврат к вводу данных
   void returnToInput() {
     final currentState = state;
     if (currentState is BmiResultState) {
