@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:photo_gallery/screens/home_screen.dart';
+import 'package:photo_gallery/cubits/photo_cubit.dart';
+import 'package:photo_gallery/repositories/photo_repository.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,106 +14,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          
-          title: Text('Легендарные моменты из легендарного мультфильма',
-          style: TextStyle(
-            fontSize: 30.0, 
-          ),
-          ),
+      title: 'Photo Gallery',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          elevation: 1,
           centerTitle: true,
         ),
-        body: MyHomePage(),
       ),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child:SingleChildScrollView(
-        
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 134, 108, 108),
-            child: Image.asset(
-              'logo_1.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 134, 108, 108),
-            child: Image.asset(
-              'logo_2.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(8.0),
-            color: Color.fromARGB(255, 42, 23, 146),
-            child: Image.asset(
-              'logo_3.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 42, 23, 146),
-            child: Image.asset(
-              'logo_4.jpg',
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 42, 23, 146),
-            child: Image.asset(
-              'logo_5.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 175, 14, 14),
-            child: Image.asset(
-              'logo_6.png', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(8.0),
-            color: const Color.fromARGB(255, 175, 14, 14),
-            child: Image.asset(
-              'logo_7.jpg', 
-              height: 500,
-              width: 750,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ],
+      debugShowCheckedModeBanner: false,
+      home: RepositoryProvider(
+        create: (context) => PhotoRepository(),
+        child: BlocProvider(
+          create: (context) => PhotoCubit(
+            repository: context.read<PhotoRepository>(),
+          )..loadPhotos(),
+          child: const HomeScreen(),
+        ),
       ),
-      )
     );
   }
 }
